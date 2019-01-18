@@ -32,24 +32,15 @@ public String pigLatin(String sWord)
 	{
 		return sWord + "ay";
 	}
-	else
-	{
-		if(findFirstVowel(sWord) == 0)
-			return sWord + "way";
+	else if (findFirstVowel(sWord) == 0)
+		return sWord + "way";
 		
-		if(sWord.substring(0,2).equals("qu"))
-			return(sWord.substring(2) + "quay");
+	else if(sWord.substring(0,2).equals("qu"))
+		return(sWord.substring(2) + "quay");
 
-		if(findFirstVowel(sWord) != 0){
-			if(findFirstVowel(sWord) != 1){
-				if(findFirstVowel(sWord) != 2){
-					return(sWord.substring(3,sWord.length()) + sWord.substring(0,3) + "ay");
-				}				
-				return(sWord.substring(2,sWord.length()) + sWord.substring(0,2) + "ay");
-			}
-			return(sWord.substring(1,sWord.length()) + sWord.substring(0,1) + "ay");
-		}
-		return "Error";
-
+	else{
+		int vowelIndex = findFirstVowel(sWord);
+		return(sWord.substring(vowelIndex, sWord.length()) + sWord.substring(0, vowelIndex) + "ay");
 	}
+
 }
